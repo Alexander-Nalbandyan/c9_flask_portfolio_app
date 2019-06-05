@@ -40,6 +40,23 @@ def add_numbers_post():
   	      	return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
 
 
+@app.route('/calc_word_freq', methods=['GET','POST'])
+def calc_word_freq_post():
+	  # --> ['5', '6', '8']
+	  # print(type(request.form['text']))
+	  if request.method == 'GET':
+	  	return render_template('calculate-word-frequency.html')
+	  elif request.method == 'POST':
+	      words = str.split(" ")
+		  word_frequency_counter = {}
+		  for word in words:
+		    if (word in word_frequency_counter):
+		      word_frequency_counter[word] += 1
+		    else:
+		      word_frequency_counter[word] = 1
+	
+  	      	  return render_template('calculate-word-frequency.html', result=str(word_frequency_counter))
+
 @app.route('/shopping_list', methods=['GET','POST'])
 def shopping_list_post():
 	  # --> ['5', '6', '8']
