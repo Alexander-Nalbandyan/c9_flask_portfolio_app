@@ -18,6 +18,11 @@ def profile(name):
 	return render_template('index.html', name=name)
 
 
+@app.route('/test', methods=['GET'])
+def showtest():
+	return 'valodik'
+
+
 @app.route('/add_numbers', methods=['GET','POST'])
 def add_numbers_post():
 	  # --> ['5', '6', '8']
