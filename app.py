@@ -47,15 +47,14 @@ def calc_word_freq_post():
 	  if request.method == 'GET':
 	  	return render_template('calculate-word-frequency.html')
 	  elif request.method == 'POST':
-	      words = str.split(" ")
-		  word_frequency_counter = {}
-		  for word in words:
-		    if (word in word_frequency_counter):
-		      word_frequency_counter[word] += 1
-		    else:
-		      word_frequency_counter[word] = 1
-	
-  	      	  return render_template('calculate-word-frequency.html', result=str(word_frequency_counter))
+	 words = str.split(" ")
+	 word_frequency_counter = {}
+	 for word in words:
+	    if (word in word_frequency_counter):
+	      word_frequency_counter[word] += 1
+	    else:
+	      word_frequency_counter[word] = 1
+	return render_template('calculate-word-frequency.html', result=str(word_frequency_counter))
 
 @app.route('/shopping_list', methods=['GET','POST'])
 def shopping_list_post():
