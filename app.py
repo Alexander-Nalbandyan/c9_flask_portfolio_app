@@ -47,7 +47,7 @@ def calc_word_freq_post():
 	if request.method == 'GET':
 		return render_template('calculate-word-frequency.html')
 	elif request.method == 'POST':
-		words = str.split(" ")
+		words = request.form['text'].split(" ")
 		word_frequency_counter = {}
 		for word in words:
 			if (word in word_frequency_counter):
